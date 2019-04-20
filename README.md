@@ -1,6 +1,9 @@
 # SpyKey v1.0
 ## Author: https://github.com/thelinuxchoice/spykey
 ## IG: instagram.com/thelinuxchoice
+## Edited: https://github.com/srmilton
+
+Use this fork while thelinuxchoice don't update the original code (if you want ;) )
 
 ### Don't copy this code without give me the credits, nerd! 
 FUD Win32 Keylogger and Reverse Shell (cmd.exe)
@@ -9,7 +12,7 @@ FUD Win32 Keylogger and Reverse Shell (cmd.exe)
 ### Port Forwarding using Serveo
 ### Fully Undetectable (Please, dont upload to totalvirus!)
 ### Custom icon (Default: WhatsApp, Messenger)
-
+### Able to reconnect
 ## Legal disclaimer:
 
 Usage of SpyKey for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program 
@@ -23,6 +26,12 @@ Usage of SpyKey for attacking targets without prior mutual consent is illegal. I
 git clone https://github.com/thelinuxchoice/spykey
 cd spykey
 bash spykey.sh
+```
+
+### Reconnect:
+You need the payload's port.
+```
+nc -lvp port
 ```
 
 ### Donate!
