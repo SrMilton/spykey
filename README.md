@@ -1,7 +1,7 @@
 # SpyKey v1.0
 ## Author: https://github.com/thelinuxchoice/spykey
 ## IG: instagram.com/thelinuxchoice
-## Edited: https://github.com/srmilton
+## Edited by: https://github.com/srmilton
 
 Use this fork while thelinuxchoice don't update the original code (if you want ;) )
 
